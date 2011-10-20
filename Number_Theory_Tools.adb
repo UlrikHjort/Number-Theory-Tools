@@ -121,7 +121,7 @@ package body Number_Theory_Tools is
            return I;
         end if;
      end loop;
-     return 1; -- 0 ?
+     return 1;
   end Get_CoPrime;
 
 
@@ -133,7 +133,7 @@ package body Number_Theory_Tools is
    ---------------------------------------------------------------------------
    function Get_Inverse(T : Large_Positive; M : Large_Positive) return Large_Positive is
    begin
-      for K in 1 .. M-1 loop -- 0 med ?
+      for K in 1 .. M-1 loop
          if ((T*K) mod M) = 1 then
             return K;
          end if;
