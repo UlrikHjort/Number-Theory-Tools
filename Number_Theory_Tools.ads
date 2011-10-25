@@ -235,13 +235,22 @@ package Number_Theory_Tools is
 
    --------------------------------------------------------------------------------------
    --
-   --                                   ( N )
-   -- Returns the binomial coefficient  (   )
-   --                                   ( K )
+   -- Returns the binomial coefficient  C(N,K)
    --
    --------------------------------------------------------------------------------------
    function Binomial_Coefficient(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
 
-      function Combination(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
-      function Permutation(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
+   --------------------------------------------------------------------------------------
+   --
+   -- Returns the combination  C(N,K)
+   --
+   --------------------------------------------------------------------------------------
+   function Combination(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
+
+   --------------------------------------------------------------------------------------
+   --
+   -- Returns the permutation P(N,K)
+   --
+   --------------------------------------------------------------------------------------
+   function Permutation(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
 end Number_Theory_Tools;

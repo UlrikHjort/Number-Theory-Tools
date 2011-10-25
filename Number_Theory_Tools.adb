@@ -540,8 +540,7 @@ package body Number_Theory_Tools is
 
    --------------------------------------------------------------------------------------
    --
-   --
-   --
+   -- Returns the binomial coefficient  C(N,K)
    --
    --------------------------------------------------------------------------------------
    function Binomial_Coefficient(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
@@ -552,8 +551,7 @@ package body Number_Theory_Tools is
 
    --------------------------------------------------------------------------------------
    --
-   --
-   --
+   -- Returns the combination  C(N,K)
    --
    --------------------------------------------------------------------------------------
    function Combination(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
@@ -573,16 +571,13 @@ package body Number_Theory_Tools is
       return Ret_Val;
    end Combination;
 
-
    --------------------------------------------------------------------------------------
    --
-   --
-   --
+   -- Returns the permutation P(N,K)
    --
    --------------------------------------------------------------------------------------
    function Permutation(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
       N_Fact   : Long_Long_Integer;
-      K_Fact   : Long_Long_Integer;
       N_K_Fact : Long_Long_Integer;
       Ret_Val  : Long_Long_Float;
    begin
@@ -590,7 +585,6 @@ package body Number_Theory_Tools is
          Ret_Val := 0.0;
       else
            N_Fact   := Factorial(Natural(N));
-           K_Fact   := Factorial(Natural(K));
            N_K_Fact := Factorial(Natural(N-K));
            Ret_Val  := Long_Long_Float(N_Fact) / (Long_Long_Float(N_K_Fact));
       end if;
