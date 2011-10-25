@@ -225,4 +225,23 @@ package Number_Theory_Tools is
    --
    ---------------------------------------------------------------------------
    function Get_Prime_Slow(Lower_Limit : Large_Positive) return Large_Positive;
+
+   --------------------------------------------------------------------------------------
+   --
+   -- Returns the factorial of N
+   --
+   --------------------------------------------------------------------------------------
+   function Factorial(N: in Natural) return Long_Long_Integer;
+
+   --------------------------------------------------------------------------------------
+   --
+   --                                   ( N )
+   -- Returns the binomial coefficient  (   )
+   --                                   ( K )
+   --
+   --------------------------------------------------------------------------------------
+   function Binomial_Coefficient(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
+
+      function Combination(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
+      function Permutation(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float;
 end Number_Theory_Tools;

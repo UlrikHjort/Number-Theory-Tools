@@ -521,4 +521,79 @@ package body Number_Theory_Tools is
          Prime := True;
       end loop;
    end Get_Prime_Slow;
+
+   --------------------------------------------------------------------------------------
+   --
+   --
+   --
+   --
+   --------------------------------------------------------------------------------------
+   function Factorial(N: in Natural) return Long_Long_Integer is
+     Fak : Long_Long_Integer := 1;
+
+   begin
+      for I in 1 .. N loop
+         Fak := Fak * Long_Long_Integer(I);
+      end loop;
+     return Fak;
+      end Factorial;
+
+   --------------------------------------------------------------------------------------
+   --
+   --
+   --
+   --
+   --------------------------------------------------------------------------------------
+   function Binomial_Coefficient(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
+
+   begin
+      return Combination(N,K);
+   end Binomial_Coefficient;
+
+   --------------------------------------------------------------------------------------
+   --
+   --
+   --
+   --
+   --------------------------------------------------------------------------------------
+   function Combination(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
+      N_Fact   : Long_Long_Integer;
+      K_Fact   : Long_Long_Integer;
+      N_K_Fact : Long_Long_Integer;
+      Ret_Val  : Long_Long_Float;
+   begin
+      if (K < 0) or (K > N) then
+         Ret_Val := 0.0;
+      else
+           N_Fact   := Factorial(Natural(N));
+           K_Fact   := Factorial(Natural(K));
+           N_K_Fact := Factorial(Natural(N-K));
+           Ret_Val  := Long_Long_Float(N_Fact) / (Long_Long_Float(K_Fact * N_K_Fact));
+      end if;
+      return Ret_Val;
+   end Combination;
+
+
+   --------------------------------------------------------------------------------------
+   --
+   --
+   --
+   --
+   --------------------------------------------------------------------------------------
+   function Permutation(N : Long_Long_Integer; K : Long_Long_Integer) return Long_Long_Float is
+      N_Fact   : Long_Long_Integer;
+      K_Fact   : Long_Long_Integer;
+      N_K_Fact : Long_Long_Integer;
+      Ret_Val  : Long_Long_Float;
+   begin
+            if (K < 0) or (K > N) then
+         Ret_Val := 0.0;
+      else
+           N_Fact   := Factorial(Natural(N));
+           K_Fact   := Factorial(Natural(K));
+           N_K_Fact := Factorial(Natural(N-K));
+           Ret_Val  := Long_Long_Float(N_Fact) / (Long_Long_Float(N_K_Fact));
+      end if;
+      return Ret_Val;
+   end Permutation;
 end Number_Theory_Tools;

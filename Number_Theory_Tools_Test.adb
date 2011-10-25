@@ -59,4 +59,8 @@ begin
    Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(18,3)));
    Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(20,8)));
    Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(4,2)));
+   New_Line;
+   Put_Line("Binomial_Coefficient C(5,2): " & Long_Long_Float'Image(Binomial_Coefficient(5,2)));
+   New_Line;
+   Put_Line("Permutation C(5,2): " & Long_Long_Float'Image(Permutation(5,2)));
  end Number_Theory_Tools_Test;
