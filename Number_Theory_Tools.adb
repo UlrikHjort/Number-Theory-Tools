@@ -22,6 +22,7 @@
 --  MA 02110 - 1301, USA.                                                    --
 --                                                                           --
 -------------------------------------------------------------------------------
+with Ada.Numerics.Elementary_Functions;
 with Ada.Numerics.Discrete_Random; use Ada.Numerics;
 with Ada.Calendar; use Ada.Calendar;
 
@@ -44,7 +45,6 @@ package body Number_Theory_Tools is
    begin
       return Random(G);
    end Get_Random_Large_Positive;
-
 
 
    ---------------------------------------------------------------------------
@@ -123,6 +123,21 @@ package body Number_Theory_Tools is
      end loop;
      return 1;
   end Get_CoPrime;
+
+
+   --------------------------------------------------------------------------------------
+   --
+   -- Modulo function for real values
+   --
+   --------------------------------------------------------------------------------------
+   function F_Mod (Numerator :in Long_Long_Float; Denominator : in Long_Long_Float) return Long_Long_Float  is
+
+      Quotient : constant Long_Long_Float := Numerator / Denominator;
+      N        : constant Integer         := Integer(Quotient - 0.5);
+
+   begin
+      return Numerator - Denominator * Long_Long_Float (N);
+   end F_Mod;
 
 
    ---------------------------------------------------------------------------
@@ -475,4 +490,35 @@ package body Number_Theory_Tools is
       end loop;
       return 0;
    end Get_Prime;
+
+   ---------------------------------------------------------------------------
+   --
+   -- Returns a prime number >= Lower_Limit
+   --
+   ---------------------------------------------------------------------------
+   function Get_Prime_Slow(Lower_Limit : Large_Positive) return Large_Positive is
+      P : Large_Positive := Lower_Limit;
+      Prime : Boolean := True;
+
+      Use Ada.Numerics.Elementary_Functions;
+   begin
+      loop
+         Increment_Loop: Loop
+            P := P + 1;
+           exit Increment_Loop when P mod 2 /= 0;
+         end loop Increment_loop;
+
+         for I in 3 .. Large_Positive(Sqrt(Float(P))) loop
+               if P mod I = 0 then
+                  Prime := False;
+               end if;
+            exit when not Prime;
+         end loop;
+         if Prime then
+            return P;
+         end if;
+
+         Prime := True;
+      end loop;
+   end Get_Prime_Slow;
 end Number_Theory_Tools;

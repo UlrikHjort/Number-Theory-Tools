@@ -54,4 +54,9 @@ begin
       exit when Prime_Factors(I) = 1;
    end loop;
    New_Line;
+   Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(8,7)));
+   Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(58,7)));
+   Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(18,3)));
+   Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(20,8)));
+   Put_Line("Inverse: " & Large_Positive'Image(Get_Inverse(4,2)));
  end Number_Theory_Tools_Test;

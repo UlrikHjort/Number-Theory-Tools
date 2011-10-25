@@ -39,6 +39,14 @@ package Number_Theory_Tools is
                                      return Large_Positive;
 
 
+
+   --------------------------------------------------------------------------------------
+   --
+   -- Modulo function for real values
+   --
+   --------------------------------------------------------------------------------------
+   function F_Mod (Numerator :in Long_Long_Float; Denominator : in Long_Long_Float) return Long_Long_Float;
+
    ---------------------------------------------------------------------------
    --
    -- Returns a modified second for use to get some more randomness in the
@@ -76,6 +84,8 @@ package Number_Theory_Tools is
    --
    ---------------------------------------------------------------------------
    function Get_Inverse(T : Large_Positive; M : Large_Positive) return Large_Positive;
+
+
 
    ---------------------------------------------------------------------------
    -- Find elements from the Knapsack of n elements En where:
@@ -207,5 +217,12 @@ package Number_Theory_Tools is
    -- Returns a prime number >= Lower_Limit
    --
    ---------------------------------------------------------------------------
-   function Get_Prime(Lower_Limit : Large_Positive) return Large_Positive ;
+   function Get_Prime(Lower_Limit : Large_Positive) return Large_Positive;
+
+   ---------------------------------------------------------------------------
+   --
+   -- Returns a prime number >= Lower_Limit
+   --
+   ---------------------------------------------------------------------------
+   function Get_Prime_Slow(Lower_Limit : Large_Positive) return Large_Positive;
 end Number_Theory_Tools;
